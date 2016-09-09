@@ -1,0 +1,82 @@
+<!doctype html>
+<html >
+    <head>
+        <script type="text/javascript">
+           // var foo = {
+           //   "x":1,
+           //   $age:null,
+           //   get age(){
+           //     if(this.$age == undefined){
+           //       return new Date().getFullYear() - 1977;
+           //     }else{
+           //       return this.$age;
+           //     }
+           // },set age(val){
+           //     val = +val;
+           //     if(!isNaN(val) && val>0 && val < 100){
+           //       this.$age = val;
+           //     }else{
+           //       throw new Error("Incorrect val=" + val);
+           //     }
+           // }};         
+           // foo.y = 100;
+
+           // console.info(foo.x);
+           // console.info("age:" + foo.age);
+           // foo.age = 11;
+
+           // function a1(){};
+           // Object.defineProperty(a1.prototype,'z',{get:function(){return 1;}});
+           // var obj = new a1();
+           // console.info("obj.z:" + obj.z);
+           // obj.z = 10;
+           // console.info("obj.z:" + obj.z);
+
+           // var o = {};
+           // Object.defineProperty(o,'x',{value:1,writable:true,configurable:true});
+           // var obj2 = Object.create(o);
+           // // var obj2 = new o();
+           // console.info("obj2.x:" + obj2.x);
+           // obj2.x = 100;
+           // console.info("obj2.x:" + obj2.x);
+
+
+           var person = {};
+           Object.defineProperties(person,{
+            title:{value:'fe',enumerable:true},
+            corp:{value:'BABA',enumerable:true},
+            salary:{value:50000,enumerable:true,writable:true}
+           });
+
+           console.info(Object.getOwnPropertyDescriptor(person,'salary'));
+
+           var obj = {x:1,y:true,z:[1,2,3],nullVal:null};
+           console.info(JSON.stringify(obj));
+           obj = {val:undefined,a:NaN,b:Infinity,c:new Date()};
+           console.info(JSON.stringify(obj));
+
+           obj = JSON.parse('{"x":1,"name":"David"}');
+           console.info(obj.toString());
+
+           obj = {
+            x:1,
+            y:2,
+            o:{
+              o1:1,
+              o2:2,
+              toJSON:function(){
+                return this.o1 + this.o2;
+              }
+            }};
+            console.info(JSON.stringify(obj));
+
+
+
+        </script>
+    </head>
+    <body>
+        <button id="btn">button1</button>
+        <button id="button2">button2</button>      
+          
+    </body>
+</html>
