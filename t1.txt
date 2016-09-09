@@ -1,2 +1,1 @@
-this is a test!
-update t1.txt by yzy.
+ manual http://blog.csdn.net/u014079773/article/details/49497181
